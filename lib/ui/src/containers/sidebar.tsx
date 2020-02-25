@@ -8,7 +8,7 @@ import { Consumer, Combo, StoriesHash, Story } from '@storybook/api';
 
 import { shortcutToHumanString } from '../libs/shortcut';
 
-import ListItemIcon from '../components/sidebar/ListItemIcon';
+import ListItemIcon from '../components/sidebar/Tree/ListItemIcon';
 import SidebarComponent from '../components/sidebar/Sidebar';
 
 type Item = StoriesHash[keyof StoriesHash];
@@ -48,7 +48,7 @@ const createMenu = memoize(1)(
     {
       id: 'F',
       title: 'Go full screen',
-      onClick: api.toggleFullscreen,
+      onClick: () => api.toggleFullscreen(),
       right: shortcutToHumanStringIfEnabled(shortcutKeys.fullScreen, enableShortcuts),
       left: isFullscreen ? 'check' : <ListItemIcon />,
     },
@@ -222,7 +222,7 @@ export const collapseDocsOnlyStories = (storiesHash: StoriesHash) => {
   return result;
 };
 
-const clone = rfdc();
+const clone = rfdc({ circles: true });
 
 const Sidebar: FunctionComponent<{}> = React.memo(() => {
   const mapper = ({ state, api }: Combo) => {

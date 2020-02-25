@@ -138,8 +138,6 @@ export const PureSidebarSearch = ({ className, onChange, ...props }: PureSidebar
   );
 };
 
-const Search = styled(PureSidebarSearch)<PureSidebarSearchProps>({
+export const Search = styled(PureSidebarSearch)<PureSidebarSearchProps>({
   margin: '0 20px 1rem',
 });
-
-export default Search;

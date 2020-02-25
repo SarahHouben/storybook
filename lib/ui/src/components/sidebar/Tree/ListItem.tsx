@@ -110,7 +110,7 @@ export const Item = styled.div<{
     }
 );
 
-type SidebarItemProps = ComponentProps<typeof Item> & {
+type ListItemProps = ComponentProps<typeof Item> & {
   childIds?: string[] | null;
   id?: string;
   isComponent?: boolean;
@@ -124,7 +124,7 @@ type SidebarItemProps = ComponentProps<typeof Item> & {
   prefix?: string;
 };
 
-const SidebarItem: FunctionComponent<SidebarItemProps> = ({
+export const ListItem: FunctionComponent<ListItemProps> = ({
   name = 'isLoading story',
   isComponent = false,
   isLeaf = false,
@@ -155,5 +155,3 @@ const SidebarItem: FunctionComponent<SidebarItemProps> = ({
     </Item>
   );
 };
-
-export default SidebarItem;
